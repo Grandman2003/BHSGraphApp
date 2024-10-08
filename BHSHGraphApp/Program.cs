@@ -8,13 +8,13 @@ namespace BHSHGraphApp
     {
         static void Main(string[] args)
         {
+
+            //Инициализация слотов
             var entryPointAdderSlot = new OutputSlot<Object>();
             var adderLinkSlot1 = new InputSlot<Object>();
 
             var constSlot1 = new OutputSlot<int>();
-            constSlot1.AddData(5);
             var constSlot2 = new OutputSlot<int>();
-            constSlot2.AddData(7);
 
             var adderInputSlot1 = new InputSlot<int>();
             var adderInputSlot2 = new InputSlot<int>();
@@ -22,6 +22,10 @@ namespace BHSHGraphApp
             var adderOutputSlot = new OutputSlot<int>();
             var printerInputSlot = new InputSlot<int>();
 
+            constSlot1.AddData(5);
+            constSlot2.AddData(7);
+
+            //Инициализация соединений
             var entryAdderConnection1 = new Connection<int>(constSlot1);
             var entryAdderConnection2 = new Connection<int>(constSlot2);
 
@@ -32,6 +36,7 @@ namespace BHSHGraphApp
 
             var adderPrinterConnection = new Connection<int>(printerInputSlot);
 
+            //Линковка соединений
             adderInputSlot1.AddConnection(entryAdderConnection1);
             adderInputSlot2.AddConnection(entryAdderConnection2);
 
@@ -42,6 +47,7 @@ namespace BHSHGraphApp
 
             adderOutputSlot.AddConnection(adderPrinterConnection);
 
+            //Построение блоков
             var entryPointBlock = new EntryPointBlock<Object>(entryPointAdderSlot);
             var adderBlock = new Adder<Object, int>(adderLinkSlot1, adderOutputSlot);
 
@@ -52,6 +58,7 @@ namespace BHSHGraphApp
             var constBlock2 = new ConstBlock<int>(constSlot2);
             var printerBlock = new PrinterBlock<int>(printerInputSlot);
 
+            //Проход по графу
             entryPointBlock.Run();
         }
     }

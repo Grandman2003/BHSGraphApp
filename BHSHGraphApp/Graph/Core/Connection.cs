@@ -11,7 +11,6 @@ namespace BHSHGraphApp.Graph
         public Slot<T> Target { get; }
         public Connection(Slot<T> target) { 
             Target = target;
-            //Target.AddConnection(this);
         }
 
         public void flowData(Object data)

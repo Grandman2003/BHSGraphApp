@@ -65,15 +65,15 @@
     <Compile Include="Graph\Core\BaseBlock.cs" />
     <Compile Include="Graph\Core\Connection.cs" />
     <Compile Include="Graph\Core\Slot.cs" />
+    <Compile Include="Part2\Task1.cs" />
+    <Compile Include="Part2\Task2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Part2\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
